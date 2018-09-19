@@ -1,0 +1,15 @@
+.uk-cover{
+    margin-bottom: 0 !important;
+    right: 0 !important; 
+    bottom: 0 !important;
+    min-width: 100% !important; 
+    min-height: 100% !important;
+    width: auto !important; 
+    height: auto !important;
+    z-index: -100 !important;
+}
+
+.uk-navbar-container.uk-navbar {
+    color: rgb(11, 129, 203) !important;
+    width: 200px !important;
+}
