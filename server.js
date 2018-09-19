@@ -9,7 +9,7 @@ var keys = require("./keys.js");
 var request = require("request");
 
 var citymapper = (keys.citymapper.id);
-//var google = (keys.google.id);
+var google = (keys.google.id);
 //var leaflet = (keys.leaflet.id);
 
 // ______________________________________________________________________________
