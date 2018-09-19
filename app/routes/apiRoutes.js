@@ -30,3 +30,22 @@
 //         }
 //     })
 // 
+//function that takes in long and latitude from google maps
+//json data 
+
+//function findStations()
+
+//var Station = process.argv[3];
+
+//var queryURL = "https://lime.bike/api/partners/v1/gbfs/free_bike_status.json"
+
+// request(queryURL, function (error, response, body){
+
+
+//var jsonData = JSON.parse(body);
+//console.log("bike_id: " + jsonData[0].);
+//console.log("lat: " + jsonData[0]);
+//console.log("lon: " + jsonData[0]);
+//console.log("is_reserved: " + jsonData[0]);
+//console.log("is_disabled: " + jsonData[0]);
+//console.log("vehicle_type: " + jsonData[0]);
