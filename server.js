@@ -28,6 +28,24 @@ app.use(bodyParser.json());
 require("./app/routes/apiRoutes.js")(app);
 // require("./app/routing/htmlRoutes")(app);
 
+
+//_____________________________________________________________________________
+//leaflet
+
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+
+var layer = L.mapbox.tileLayer('mapbox.streets');
+layer.on('ready', function() {
+  // the layer has been fully loaded now, and you can
+  // call .getTileJSON and investigate its properties
+});
+
+var layer = L.mapbox.tileLayer('mapbox.streets');
+layer.on('error', function(err) {
+  // Handle error
+});
+
 // ______________________________________________________________________________
 //LISTENER - start server
 // -----–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
