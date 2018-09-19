@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+
+    <title>Bike with Bae</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/css/uikit.min.css" />
+
 </head>
+
 <body>
-    
+
+    <nav class="uk-navbar-container uk-navbar" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li><a href="#">Bike w/ Bae</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="uk-cover">
+        <video uk-background-image@m uk-background-cover loop muted playsinline uk-video="autoplay: inview" class="uk-cover-object">
+            <source src="../bikeshare-app/video/Pexels Videos 1081856.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit-icons.min.js"></script>
+
 </html>
