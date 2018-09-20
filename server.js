@@ -7,10 +7,9 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var keys = require("./keys.js");
 var request = require("request");
-
+// var L = require("leaflet");
 var citymapper = (keys.citymapper.id);
 var google = (keys.google.id);
-//var leaflet = (keys.leaflet.id);
 
 // ______________________________________________________________________________
 // EXPRESS - server setup
@@ -25,25 +24,27 @@ app.use(bodyParser.json());
 //______________________________________________________________________________
 //ROUTER - Connecting to .js data in routing folder
 // -----–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// require("./app/routes/apiRoutes.js")(app);
+// require("index.html")(app);
 
-
+app.get("/",function(req, res){
+res.sendFile(path.join(__dirname,"./index.html"));
+});
 //_____________________________________________________________________________
 //leaflet
 
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+// var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
 
-var layer = L.mapbox.tileLayer('mapbox.streets');
-layer.on('ready', function() {
-  // the layer has been fully loaded now, and you can
-  // call .getTileJSON and investigate its properties
-});
+// var layer = L.mapbox.tileLayer('mapbox.streets');
+// layer.on('ready', function() {
+//   // the layer has been fully loaded now, and you can
+//   // call .getTileJSON and investigate its properties
+// });
 
-var layer = L.mapbox.tileLayer('mapbox.streets');
-layer.on('error', function(err) {
-  // Handle error
-});
+// var layer = L.mapbox.tileLayer('mapbox.streets');
+// layer.on('error', function(err) {
+//   // Handle error
+// });
 
 // ______________________________________________________________________________
 //LISTENER - start server
