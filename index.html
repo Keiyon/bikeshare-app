@@ -2,61 +2,94 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin="" />
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-    crossorigin=""></script>
-  <link rel="stylesheet" href="./map.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 
-  <link rel="stylesheet" href="./Leaflet-1.3.4/././dist/leaflet.css" />
-  <script src=".//./Leaflet-1.3.4//dist//leaflet.js"></script> -->
+    <title>Bike with Bae</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <!-- <link rel="stylesheet" href="./map.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/css/uikit.min.css" />
+
 </head>
 
 <body>
-  <div id='mapid'></div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- NAVBAR -->
+
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#">Bike w/ Bae</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- COVER -->
+
+    <div class="uk-cover">
+        <video uk-background-image@m uk-background-cover loop muted playsinline uk-video="autoplay: inview" class="uk-cover-object">
+            <source src="./Pexels Videos 1081856.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <!-- MAP -->
+
+    <div id="mapid"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 </body>
 
+
 <script>
+    // load GeoJSON from an external file
+    $.getJSON("https://api.coord.co/v1/sv/location?latitude=38.995719&longitude=-77.038405&radius_km=100&access_key=lo_qtNC8fHHmJOTkvZnPSv3-aWFdker4UEn5z4LGqzU", function (data) {
+        // add GeoJSON layer to the map once the file is loaded
+        L.geoJson(data).addTo(mymap);
+    });
+    var mymap = L.map("mapid").setView([38.9072, -77.0369], 13);
+    L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: "mapbox.streets",
+        accessToken: "pk.eyJ1Ijoibm9taW5iIiwiYSI6ImNqbTk4enhqdTBkazEzcG4xMnF2d2hhMHUifQ.FR4IlfSjVgCaXe4MtqsomQ"
+    }).addTo(mymap);
+    var marker = L.marker([38.8963, -77.045]).addTo(mymap);
+    var marker = L.marker([38.9008, -77.047]).addTo(mymap);
+    var marker = L.marker([38.9022212, -77.059219]).addTo(mymap);
+    var marker = L.marker([38.9008, -77.047]).addTo(mymap);
 
-  var mymap = L.map('mapid').setView([38.9072, -77.0369], 13);
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoibm9taW5iIiwiYSI6ImNqbTk4enhqdTBkazEzcG4xMnF2d2hhMHUifQ.FR4IlfSjVgCaXe4MtqsomQ'
-  }).addTo(mymap);
+    // https://www.mapbox.com/mapbox-gl-js/example/live-geojson/ //
 
-// var latlng = L.latlng(38.8963, -77.045);(38.9008, -77.047);(38.9022212, -77.059219)
+    var url = "https://api.coord.co/v1/sv/location?latitude=38.995719&longitude=-77.038405&radius_km=100&access_key=lo_qtNC8fHHmJOTkvZnPSv3-aWFdker4UEn5z4LGqzU";
+    mymap.on("load", function () {
+        window.setInterval(function () {
+            map.getSource("bike").setData(url);
+        }, 2000);
 
-// map.panTo(L.latLng(38.8963, -77.045));
-
-// Create an Empty Popup
-// var popup = L.popup();
-
-// Write function to set Properties of the Popup
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(map);
-// }
-
-// Listen for a click event on the Map element
-// map.on('click', onMapClick);
-  var marker = L.marker([38.8963, -77.045],).addTo(mymap);
-  var marker = L.marker([38.9008, -77.047],).addTo(mymap);
-  var marker = L.marker([38.9022212, -77.059219],).addTo(mymap);
-  var marker = L.marker([38.9008, -77.047],).addTo(mymap);
-
-
- 
-
+        map.addSource("bike", { type: "geojson", data: url });
+        map.addLayer({
+            "id": "bike",
+            "type": "symbol",
+            "source": "bike",
+            "layout": {
+            "icon-image": "rocket-15"
+            }
+        });
+    });
 
 </script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit-icons.min.js"></script>
 
 </html>
