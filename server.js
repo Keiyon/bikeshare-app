@@ -10,6 +10,10 @@ var request = require("request");
 // var L = require("leaflet");
 var citymapper = (keys.citymapper.id);
 var google = (keys.google.id);
+// var mapbox = (keys.mapbox.id);
+// var L = require("leaflet");
+// var $ = require("jquery");
+
 
 // ______________________________________________________________________________
 // EXPRESS - server setup
@@ -33,6 +37,23 @@ res.sendFile(path.join(__dirname,"./index.html"));
 //leaflet
 
 // var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+// add GeoJSON layer to the map once the file is loaded
+
+//   var mymap = L.map('mapid').setView([38.9072, -77.0369], 13);
+//   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox.streets',
+//     accessToken: 'pk.eyJ1Ijoibm9taW5iIiwiYSI6ImNqbTk4enhqdTBkazEzcG4xMnF2d2hhMHUifQ.FR4IlfSjVgCaXe4MtqsomQ'
+//   }).addTo(mymap);
+
+//   var marker = L.marker([38.8963, -77.045],).addTo(mymap);
+//   var marker = L.marker([38.9008, -77.047],).addTo(mymap);
+//   var marker = L.marker([38.9022212, -77.059219],).addTo(mymap);
+//   var marker = L.marker([38.9008, -77.047],).addTo(mymap);
+
+
+
 
 
 // var layer = L.mapbox.tileLayer('mapbox.streets');
