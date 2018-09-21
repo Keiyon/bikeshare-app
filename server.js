@@ -3,6 +3,7 @@
 // -----–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 require("dotenv").config();  
 var express = require("express");
+var serveStatic = require("serve-static")
 var bodyParser = require("body-parser");
 var path = require("path");
 var keys = require("./keys.js");
@@ -28,11 +29,11 @@ app.use(bodyParser.json());
 //______________________________________________________________________________
 //ROUTER - Connecting to .js data in routing folder
 // -----–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-// require("index.html")(app);
+app.use(serveStatic("./public/", {"index": ["index.html"]}));
 
-app.get("/",function(req, res){
-res.sendFile(path.join(__dirname,"/"));
-});
+// app.get("/",function(req, res){
+// res.sendFile(path.join(__dirname,"/"));
+// });
 //_____________________________________________________________________________
 //leaflet
 
