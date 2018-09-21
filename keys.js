@@ -5,7 +5,7 @@ exports.google = {
 };
 
 
-exports.citymapper = {
-    id: process.env.CITYMAPPER_ID
+exports.coord = {
+    id: process.env.COORD_ID
 };
 
