@@ -18,3 +18,8 @@
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     font-size: 35px !important;   
 }
+
+#mapid { 
+    height: 500px; 
+    width: 700px;
+}
