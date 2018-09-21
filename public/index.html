@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
 
+
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
   crossorigin=""></script>
 
     <!-- <link rel="stylesheet" href="./map.css"> -->
-
 
 </head>
 
@@ -37,62 +37,26 @@
 
     <!-- COVER -->
 
-    <div class="uk-cover">
+    <!-- <div class="uk-cover">
         <video uk-background-image@m uk-background-cover loop muted playsinline uk-video="autoplay: inview" class="uk-cover-object">
             <source src="./background.mp4" type="video/mp4">
         </video>
-    </div>
-
+    </div> -->
 
     <!-- MAP -->
 
     <div id="mapid"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<footer>
+    <div class="footer">
+        
+    </div>
+</footer>
 
 </body>
 
-
-<script>
-    // load GeoJSON from an external file
-    $.getJSON("https://api.coord.co/v1/sv/location?latitude=38.995719&longitude=-77.038405&radius_km=100&access_key=lo_qtNC8fHHmJOTkvZnPSv3-aWFdker4UEn5z4LGqzU", function (data) {
-        // add GeoJSON layer to the map once the file is loaded
-        L.geoJson(data).addTo(mymap);
-    });
-    var mymap = L.map("mapid").setView([38.9072, -77.0369], 13);
-    L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: "mapbox.streets",
-        accessToken: "pk.eyJ1Ijoibm9taW5iIiwiYSI6ImNqbTk4enhqdTBkazEzcG4xMnF2d2hhMHUifQ.FR4IlfSjVgCaXe4MtqsomQ"
-    }).addTo(mymap);
-    var marker = L.marker([38.8963, -77.045]).addTo(mymap);
-    var marker = L.marker([38.9008, -77.047]).addTo(mymap);
-    var marker = L.marker([38.9022212, -77.059219]).addTo(mymap);
-    var marker = L.marker([38.9008, -77.047]).addTo(mymap);
-
-    // https://www.mapbox.com/mapbox-gl-js/example/live-geojson/ //
-
-    var url = "https://api.coord.co/v1/sv/location?latitude=38.995719&longitude=-77.038405&radius_km=100&access_key=lo_qtNC8fHHmJOTkvZnPSv3-aWFdker4UEn5z4LGqzU";
-    mymap.on("load", function () {
-        window.setInterval(function () {
-            map.getSource("bike").setData(url);
-        }, 2000);
-
-        map.addSource("bike", { type: "geojson", data: url });
-        map.addLayer({
-            "id": "bike",
-            "type": "symbol",
-            "source": "bike",
-            "layout": {
-            "icon-image": "rocket-15"
-            }
-        });
-    });
-
-</script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit-icons.min.js"></script>
+<script type="text/javascript" src="../scripts.js"></script>
 
 </html>
