@@ -53,12 +53,11 @@
         // x.innerHTML = "Latitude: " + position.coords.latitude + 
         "<br>Longitude: " + position.coords.longitude;
         
-    }
-
-
-    L.tileLayer( 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+        L.tileLayer( 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
         attribution: '&copy; <a id="home-link" target="_top" href="../">Map tiles</a> by <a target="_top" href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
       }).addTo(mymap);
+
+    }
 
     // https://www.mapbox.com/mapbox-gl-js/example/live-geojson/ //
 
@@ -79,6 +78,36 @@
         });
     });
 
+function geocode() {
+    // var div = $("#top-container");
+    div.animate({opacity: '0.25'});
+    // Input of location from User
+    // If then Statement.  If Input of Current Location is empty, then run the following, if not Alert the user. Reset the Field first before proceeding.
+    var location = $("#current-location").val();
+    // Turn location into City and State.
+    axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+            params: {
+                address: location,
+                key: "AIzaSyArFwgB2r5o-zqLXF_b_nS9JXyg_78zArA"
+            }
+        })
+        .then(function (response) {
+            console.log("GoogleAPI:");
+            console.log(response);
+
+            var latResult = response.data.results[0].geometry.location.lat;
+            console.log(latResult);
+            // latResult = lngLatArray[0];
 
 
+            var lngResult = response.data.results[0].geometry.location.lng;
+            console.log(lngResult);
+            // lngResult = lngLatArray[1];
+            tempInput(latResult, lngResult);
 
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+
+}

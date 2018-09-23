@@ -3,7 +3,7 @@
 
 // var location = $("#").val();
 function geocode() {
-var location = "chicago,il";
+var location = "washington,dc";
 // Turn location into City and State.
 axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
@@ -32,4 +32,3 @@ axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
 };
 
 geocode();
-
