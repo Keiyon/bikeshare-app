@@ -26,3 +26,11 @@
     /* width: auto; 
     height: auto; */
 }
+
+#logo {
+    height: 65px;
+}
+
+.brand-logo {
+    padding-left: -10px !important;
+}
