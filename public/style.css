@@ -10,16 +10,19 @@
 }
 
 .uk-navbar-container {
-    background-color: rgba(230, 19, 19, 0.756) !important;
+    background-color: black !important;
     /* width: 200px !important; */
     font-weight: bold !important;
 }
 
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
     font-size: 35px !important;   
+    color: white;
 }
 
 #mapid { 
-    height: 600px; 
-    width: 1350px;
+    height: 1000px; 
+    width: 2000px;
+    /* width: auto; 
+    height: auto; */
 }

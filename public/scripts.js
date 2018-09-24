@@ -21,7 +21,7 @@ function showPosition(position) {
         for (var i = 0; i < data.features.length; i++) {
                 var bikeData = data.features[i].properties;
                 console.log("bikeData: "+ bikeData);
-                var popUp = L.popup({className: 'popup'}).setContent('<div class="popupDiv">' + bikeData.system_id + '</div>')
+                var popUp = L.popup({className: 'popup'}).setContent('<div class="popupDiv">' + bikeData.system_id + '<br>' + bikeData.name + '<br>Bikes Available: ' + bikeData.num_bikes_available +'<br>Docks Available: ' + bikeData.num_docks_available+  '</div>')
                 // L.popUp(bikeData, { //dockless bikes first
                 //     onEachFeature: function (bikeData, layer) {
                 //         layer.bindPopup(bikeData.system_id)
