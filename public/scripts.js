@@ -14,7 +14,7 @@
     }
     
     function showPosition(position) {
-        alert("this is location" + position.coords.latitude+position.coords.longitude) ;
+        // alert("this is location" + position.coords.latitude+position.coords.longitude) ;
 
         ///coord api call
 
