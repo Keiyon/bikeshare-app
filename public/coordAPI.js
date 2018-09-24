@@ -1,8 +1,8 @@
 
 var request = require("request");
 var PORT = 8080;
-var keys = require("./keys.js");
-var coord = (keys.coord.id);
+// var keys = require("./keys.js");
+var coord = "lo_qtNC8fHHmJOTkvZnPSv3-aWFdker4UEn5z4LGqzU";
 // var latitude = 38.995719;
 // var longitude = -77.038405;
 
