@@ -13,6 +13,7 @@ function findBikes() {
     request(queryUrl, function (error, response, body){
         if (!error && response.statusCode === 200){
             var jsonData = JSON.parse(body);
+            console.log(jsonData, "This is the bikeShare datat");
             for (var i = 0; i< jsonData.features.length; i++){
             // console.log("Features: " +jsonData.features[i]);
             var bikeData = jsonData.features[i].properties;
