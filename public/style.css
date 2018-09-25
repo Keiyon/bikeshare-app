@@ -23,3 +23,10 @@
     height: 600px; 
     width: 1350px;
 }
+
+.uk-modal-dialog {
+    text-align: center;
+    background-color:rgb(185, 204, 208);
+    text: white;
+}
+
