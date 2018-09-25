@@ -34,3 +34,16 @@
 .brand-logo {
     padding-left: -10px !important;
 }
+
+.uk-modal-dialog {
+    text-align: center;
+    background-color: black;
+ }
+
+ h2{
+     color: white;
+ }
+
+ .uk-button.uk-button-default.uk-modal-close{
+     color: white;
+ }
